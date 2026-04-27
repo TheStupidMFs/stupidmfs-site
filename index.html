@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stupid MFs</title>
 
+  <style>
+    body {
+      margin: 0;
+      background: #ff1a00;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: white;
+    }
+
+    .nav {
+      background: black;
+      padding: 15px;
+    }
+
+    .nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .logo {
+      margin-top: 40px;
+      width: 400px;
+    }
+
+    .menu {
+      margin-top: 30px;
+    }
+
+    .menu button {
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 16px;
+      background: white;
+      border: 4px solid black;
+      cursor: pointer;
+    }
+
+    .menu button:hover {
+      transform: scale(1.1);
+    }
+
+    .character {
+      margin-top: 40px;
+      width: 250px;
+      animation: float 2s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav">
+    <a href="#">HOME</a>
+    <a href="#">MERCH</a>
+    <a href="#">SERVICES</a>
+    <a href="#">PLAYBOOK</a>
+  </div>
+
+  <img src="LOGO.jfif" class="logo" />
+
+  <div class="menu">
+    <button onclick="window.open('https://www.launchmynft.io/collections/3vEb4ECM4tqfG1CLrdXqgA56KA4UcuWx9mw7puiWWQKG/D1zHHouXrOc20aJzPZg1')">
+      MINT A STUPID MF
+    </button>
+
+    <button onclick="window.open('https://t.me')">
+      TELEGRAM
+    </button>
+
+    <button onclick="window.open('https://x.com/TheStupidMFs')">
+      X
+    </button>
+  </div>
+
+  <img src="FOOLY.jpg" class="character" />
+
+  <div class="footer">
+    <p>Be stupid and prosper.</p>
+  </div>
+
+</body>
+</html>
