@@ -38,6 +38,30 @@
       font-weight: bold;
     }
 
+    /* SCROLLING TEXT */
+    .scroll-text {
+      position: fixed;
+      top: 120px;
+      left: 0;
+      width: 100%;
+      font-size: 90px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.15);
+      white-space: nowrap;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .scroll-inner {
+      display: inline-block;
+      animation: scroll 12s linear infinite;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+
     .content {
       position: relative;
       z-index: 2;
@@ -131,6 +155,13 @@
 
   <div class="overlay"></div>
 
+  <!-- SCROLLING TEXT -->
+  <div class="scroll-text">
+    <div class="scroll-inner">
+      MEMECOINS ARE STUPID • NFTS ARE STUPID • YOU ARE STUPID •
+    </div>
+  </div>
+
   <div class="nav">
     <a href="index.html">HOME</a>
     <a href="merch.html">MERCH</a>
@@ -178,12 +209,12 @@
     const quotes = [
       "They said memecoins were stupid. We agreed and built anyway.",
       "Welcome to the clubhouse. Leave smart stuff outside.",
-      "2,222 Stupid MFs. Infinite stupid decisions.",
+      "2,222 Stupid MFs. Infinite stupidity.",
       "Be stupid and prosper.",
-      "This is not a project. This is stupidity with structure.",
-      "Rep your NFt, become more stupid.",
+      "This is not a project. This is stupid with structure.",
+      "Fred rotated first.",
       "Stupid Gaming coming soon...",
-      "You were smart. now you're stupid."
+      "You were smart. Now you're stupid."
     ];
 
     function showQuote() {
