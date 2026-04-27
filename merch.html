@@ -35,47 +35,57 @@
       font-size: 18px;
     }
 
-    .character {
-      margin-top: 40px;
-      width: 220px;
-      animation: float 2s infinite ease-in-out;
+    .product {
+      margin-top: 50px;
+      width: 300px;
+      border: 5px solid black;
+      box-shadow: 8px 8px 0 black;
+      transition: 0.2s;
       cursor: pointer;
     }
 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-12px); }
-      100% { transform: translateY(0px); }
+    .product:hover {
+      transform: scale(1.05);
     }
 
-    .button {
-      display: inline-block;
+    .label {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .hint {
+      margin-top: 10px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .cta {
       margin-top: 40px;
-      padding: 20px 50px;
-      font-size: 22px;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 18px 40px;
       background: white;
       color: black;
       border: 5px solid black;
-      cursor: pointer;
       text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
       box-shadow: 8px 8px 0 black;
       transition: 0.2s;
     }
 
-    .button:hover {
+    .cta a:hover {
       transform: scale(1.1);
-    }
-
-    .hint {
-      margin-top: 20px;
-      font-size: 14px;
-      opacity: 0.8;
     }
   </style>
 </head>
 
 <body>
 
+  <!-- NAV -->
   <div class="nav">
     <a href="index.html">HOME</a>
     <a href="merch.html">MERCH</a>
@@ -83,33 +93,24 @@
     <a href="playbook.html">PLAYBOOK</a>
   </div>
 
+  <!-- TITLE -->
   <h1>MERCH</h1>
   <p class="subtitle">Wear the stupidity.</p>
 
-  <!-- CHARACTER -->
-  <img src="FOOLY.jpg" class="character" onclick="openStore()" />
-
-  <!-- BUTTON -->
-  <br>
-  <a class="button" href="https://stupid-mfs.printify.me/" target="_blank">
-    ENTER STORE
+  <!-- PRODUCT IMAGE -->
+  <a href="https://stupid-mfs.printify.me/" target="_blank">
+    <img src="chain.jfif" class="product" />
   </a>
 
-  <p class="hint">click Fooly or enter the store</p>
+  <p class="label">STUPID CHAIN</p>
+  <p class="hint">Click product to shop</p>
 
-  <!-- SOUND + INTERACTION -->
-  <audio id="clickSound">
-    <source src="https://www.soundjay.com/buttons/sounds/button-16.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    function openStore() {
-      document.getElementById("clickSound").play();
-      setTimeout(() => {
-        window.open("https://stupid-mfs.printify.me/", "_blank");
-      }, 200);
-    }
-  </script>
+  <!-- BUTTON (backup CTA) -->
+  <div class="cta">
+    <a href="https://stupid-mfs.printify.me/" target="_blank">
+      ENTER STORE
+    </a>
+  </div>
 
 </body>
 </html>
