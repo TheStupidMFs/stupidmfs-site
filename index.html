@@ -6,11 +6,21 @@
   <style>
     body {
       margin: 0;
-      background: #ff1a00;
+      background: url("stupidtag.png") center/cover no-repeat fixed;
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
       overflow-x: hidden;
+    }
+
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 26, 0, 0.88);
+      top: 0;
+      left: 0;
+      z-index: 1;
     }
 
     .nav {
@@ -28,27 +38,10 @@
       font-weight: bold;
     }
 
-    .bg-text {
-      position: fixed;
-      top: 180px;
-      left: 0;
-      font-size: 110px;
-      font-weight: bold;
-      color: rgba(0, 0, 0, 0.14);
-      white-space: nowrap;
-      animation: scrollText 14s linear infinite;
-      z-index: 0;
-    }
-
-    @keyframes scrollText {
-      from { transform: translateX(100%); }
-      to { transform: translateX(-100%); }
-    }
-
     .content {
       position: relative;
       z-index: 2;
-      padding: 50px 20px;
+      padding: 60px 20px;
     }
 
     .logo {
@@ -61,20 +54,42 @@
       width: 260px;
       margin-top: 35px;
       animation: float 2s infinite ease-in-out;
-      transition: 0.2s;
-      cursor: pointer;
       border: 5px solid black;
       box-shadow: 8px 8px 0 black;
+      cursor: pointer;
+      transition: 0.2s;
     }
 
     .character:hover {
-      transform: scale(1.06) rotate(-3deg);
+      transform: scale(1.08) rotate(-3deg);
     }
 
     @keyframes float {
       0% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
       100% { transform: translateY(0); }
+    }
+
+    .menu {
+      margin-top: 30px;
+    }
+
+    .menu button {
+      margin: 12px;
+      padding: 18px 34px;
+      font-size: 18px;
+      font-weight: bold;
+      background: white;
+      color: black;
+      border: 5px solid black;
+      box-shadow: 7px 7px 0 black;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .menu button:hover {
+      transform: scale(1.1) rotate(-1deg);
+      background: #ffe600;
     }
 
     #quote {
@@ -88,28 +103,6 @@
       padding: 22px;
       font-size: 22px;
       font-weight: bold;
-    }
-
-    .menu {
-      margin-top: 25px;
-    }
-
-    .menu button {
-      margin: 12px;
-      padding: 18px 34px;
-      font-size: 18px;
-      font-weight: bold;
-      background: white;
-      color: black;
-      border: 5px solid black;
-      box-shadow: 7px 7px 0 black;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .menu button:hover {
-      transform: scale(1.08);
-      background: #ffe600;
     }
 
     .music-btn {
@@ -136,15 +129,13 @@
 
 <body>
 
+  <div class="overlay"></div>
+
   <div class="nav">
     <a href="index.html">HOME</a>
     <a href="merch.html">MERCH</a>
     <a href="services.html">SERVICES</a>
     <a href="playbook.html">PLAYBOOK</a>
-  </div>
-
-  <div class="bg-text">
-    MEMECOINS ARE STUPID • NFTS ARE STUPID • YOU ARE STUPID •
   </div>
 
   <div class="content">
@@ -166,7 +157,7 @@
       </button>
 
       <button onclick="window.open('https://x.com/TheStupidMFs')">
-        JOIN THE MOVEMENT
+        ENTER THE CHAOS
       </button>
 
       <button onclick="toggleMusic()">
@@ -186,13 +177,13 @@
   <script>
     const quotes = [
       "They said memecoins were stupid. We agreed and built anyway.",
-      "Welcome to the clubhouse. Please leave all the smart stuff outside.",
-      "2,222 Stupid MFs. Infinite stupidity.",
+      "Welcome to the clubhouse. Leave smart stuff outside.",
+      "2,222 Stupid MFs. Infinite stupid decisions.",
       "Be stupid and prosper.",
-      "This is not a project. This is a beautifully organized stupid idea.",
-      "The NFT is not just a PFP. It is your stupid brand.",
+      "This is not a project. This is stupidity with structure.",
+      "Rep your NFt, become more stupid.",
       "Stupid Gaming coming soon...",
-      "Rep your NFT, earn rewards."
+      "You were smart. now you're stupid."
     ];
 
     function showQuote() {
