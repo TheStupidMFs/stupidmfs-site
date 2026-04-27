@@ -6,11 +6,21 @@
   <style>
     body {
       margin: 0;
-      background: #ff1a00;
+      background: url("foolygmgm.png") center/cover no-repeat fixed;
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
       overflow-x: hidden;
+    }
+
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 26, 0, 0.88);
+      top: 0;
+      left: 0;
+      z-index: 1;
     }
 
     .nav {
@@ -29,6 +39,8 @@
     }
 
     .content {
+      position: relative;
+      z-index: 2;
       padding: 80px 20px;
     }
 
@@ -37,23 +49,86 @@
       text-shadow: 6px 6px black;
     }
 
-    .video-container {
-      margin-top: 50px;
-      cursor: pointer;
-      display: inline-block;
+    .video-box {
+      position: relative;
+      width: 520px;
+      max-width: 90%;
+      margin: 40px auto 0;
     }
 
-    .video-container video {
-      width: 400px;
-      max-width: 90%;
+    video {
+      width: 100%;
       border: 5px solid black;
       box-shadow: 8px 8px 0 black;
+      background: black;
+    }
+
+    .glitch-cover {
+      position: absolute;
+      inset: 0;
+      background: black;
+      border: 5px solid black;
+      box-shadow: 8px 8px 0 black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      cursor: pointer;
+      overflow: hidden;
+      z-index: 5;
+    }
+
+    .glitch-cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,0.08) 0px,
+        rgba(255,255,255,0.08) 2px,
+        transparent 2px,
+        transparent 6px
+      );
+      animation: scan 0.4s linear infinite;
+    }
+
+    @keyframes scan {
+      from { transform: translateY(-20px); }
+      to { transform: translateY(20px); }
+    }
+
+    .glitch-text {
+      position: relative;
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 4px 0 red, -4px 0 #00eaff;
+      animation: glitch 0.6s infinite;
+      z-index: 6;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-3px, 2px); }
+      40% { transform: translate(3px, -2px); }
+      60% { transform: translate(-2px, -1px); }
+      80% { transform: translate(2px, 1px); }
+      100% { transform: translate(0); }
+    }
+
+    .glitch-sub {
+      position: relative;
+      z-index: 6;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #ffe600;
     }
 
     .hint {
-      margin-top: 15px;
-      font-size: 16px;
-      opacity: 0.8;
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-shadow: 2px 2px black;
     }
 
     .tagline {
@@ -61,10 +136,53 @@
       font-size: 20px;
       text-shadow: 3px 3px black;
     }
+
+    .consult {
+      margin-top: 70px;
+      background: white;
+      color: black;
+      border: 5px solid black;
+      box-shadow: 10px 10px 0 black;
+      padding: 35px 25px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .consult h2 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    .consult p {
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
+    .consult a {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 16px 35px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border: 4px solid black;
+      box-shadow: 6px 6px 0 black;
+      transition: 0.2s;
+    }
+
+    .consult a:hover {
+      transform: scale(1.08) rotate(-1deg);
+      background: #ffe600;
+      color: black;
+    }
   </style>
 </head>
 
 <body>
+
+  <div class="overlay"></div>
 
   <div class="nav">
     <a href="index.html">HOME</a>
@@ -76,23 +194,36 @@
   <div class="content">
     <h1>MEET FOOLY</h1>
 
-    <video controls playsinline>
-  <source src="Stupidmfscreator.mp4" type="video/mp4">
-  Your browser does not support this video.
-</video>
+    <div class="video-box">
+      <video id="foolyVideo" controls playsinline>
+        <source src="Stupidmfscreator.mp4" type="video/mp4">
+      </video>
+
+      <div class="glitch-cover" id="glitchCover" onclick="startVideo()">
+        <div class="glitch-text">FOOLY SIGNAL DETECTED</div>
+        <div class="glitch-sub">ENTER TRANSMISSION</div>
+      </div>
     </div>
 
-    <p class="hint">Click to play</p>
+    <p class="hint">Press play to meet the creator of the stupidity.</p>
 
-    <p class="tagline">
-      The mind behind the stupidity.
-    </p>
+    <p class="tagline">The mind behind the movement.</p>
+
+    <div class="consult">
+      <h2>Talk Over Champagne</h2>
+      <p>Got an idea? A project? Or just want to build something stupid together? Let’s talk.</p>
+
+      <a href="https://x.com/FoolyNFT" target="_blank">DM FOOLY</a>
+    </div>
   </div>
 
   <script>
-    function playVideo() {
-      const vid = document.getElementById("foolyVideo");
-      vid.play();
+    function startVideo() {
+      const video = document.getElementById("foolyVideo");
+      const cover = document.getElementById("glitchCover");
+
+      cover.style.display = "none";
+      video.play();
     }
   </script>
 
