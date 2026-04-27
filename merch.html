@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Merch - Stupid MFs</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #ff1a00;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .nav {
+      background: black;
+      padding: 15px;
+    }
+
+    .nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin-top: 60px;
+      font-size: 60px;
+      text-shadow: 6px 6px black;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .character {
+      margin-top: 40px;
+      width: 220px;
+      animation: float 2s infinite ease-in-out;
+      cursor: pointer;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 20px 50px;
+      font-size: 22px;
+      background: white;
+      color: black;
+      border: 5px solid black;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 8px 8px 0 black;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+    }
+
+    .hint {
+      margin-top: 20px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav">
+    <a href="index.html">HOME</a>
+    <a href="merch.html">MERCH</a>
+    <a href="services.html">SERVICES</a>
+    <a href="playbook.html">PLAYBOOK</a>
+  </div>
+
+  <h1>MERCH</h1>
+  <p class="subtitle">Wear the stupidity.</p>
+
+  <!-- CHARACTER -->
+  <img src="FOOLY.jpg" class="character" onclick="openStore()" />
+
+  <!-- BUTTON -->
+  <br>
+  <a class="button" href="https://stupid-mfs.printify.me/" target="_blank">
+    ENTER STORE
+  </a>
+
+  <p class="hint">click Fooly or enter the store</p>
+
+  <!-- SOUND + INTERACTION -->
+  <audio id="clickSound">
+    <source src="https://www.soundjay.com/buttons/sounds/button-16.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function openStore() {
+      document.getElementById("clickSound").play();
+      setTimeout(() => {
+        window.open("https://stupid-mfs.printify.me/", "_blank");
+      }, 200);
+    }
+  </script>
+
+</body>
+</html>
