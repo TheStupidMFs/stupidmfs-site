@@ -2,18 +2,33 @@
 <html>
 <head>
   <title>Playbook - Stupid MFs</title>
+
   <style>
     body {
       margin: 0;
-      background: #ff1a00;
+      background: url("gameplan.png") center/cover no-repeat fixed;
       color: white;
       font-family: Arial, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 26, 0, 0.88);
+      top: 0;
+      left: 0;
+      z-index: 1;
     }
 
     .nav {
       background: black;
       padding: 15px;
-      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .nav a {
@@ -23,30 +38,99 @@
       font-weight: bold;
     }
 
-    .wrap {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 70px 20px;
     }
 
     h1 {
-      text-align: center;
-      font-size: 48px;
-      text-shadow: 5px 5px black;
+      font-size: 60px;
+      text-shadow: 6px 6px black;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      font-weight: bold;
+      text-shadow: 3px 3px black;
+      margin-bottom: 40px;
+    }
+
+    .story-box {
+      max-width: 750px;
+      margin: 0 auto 45px;
+      background: white;
+      color: black;
+      border: 5px solid black;
+      box-shadow: 10px 10px 0 black;
+      padding: 30px;
+      font-size: 22px;
+      font-weight: bold;
+      min-height: 100px;
+    }
+
+    .chapters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .card {
       background: white;
       color: black;
       border: 5px solid black;
-      padding: 25px;
-      margin: 25px 0;
       box-shadow: 8px 8px 0 black;
+      padding: 25px;
+      cursor: pointer;
+      transition: 0.18s;
+    }
+
+    .card:hover {
+      transform: scale(1.06) rotate(-1deg);
+      background: #ffe600;
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 15px;
+      background: black;
+      color: white;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .roadmap {
+      max-width: 900px;
+      margin: 60px auto 0;
+      background: black;
+      border: 5px solid white;
+      box-shadow: 8px 8px 0 black;
+      padding: 30px;
+    }
+
+    .roadmap h2 {
+      font-size: 36px;
+      margin-top: 0;
+    }
+
+    .roadmap p {
+      font-size: 18px;
+      line-height: 1.5;
     }
   </style>
 </head>
 
 <body>
+
+  <div class="overlay"></div>
 
   <div class="nav">
     <a href="index.html">HOME</a>
@@ -55,39 +139,82 @@
     <a href="playbook.html">PLAYBOOK</a>
   </div>
 
-  <div class="wrap">
+  <div class="content">
     <h1>STUPID MFs PLAYBOOK</h1>
+    <p class="subtitle">Click a chapter. Learn the lore. Join the bad idea.</p>
 
-    <div class="card">
-      <h2>Origin</h2>
-      <p>Stupid MFs started as a joke, but the joke got organized. In January 2025, Bitcoin maxi Fred Krueger launched $STUPID on Solana to prove memecoins were stupid. The community took it seriously and started building.</p>
+    <div class="story-box" id="storyBox">
+      Stupid MFs started as a joke... but the joke got organized. Pick a chapter below.
     </div>
 
-    <div class="card">
-      <h2>The NFT Club</h2>
-      <p>2,222 hand-drawn Stupid MF NFTs created by @FoolyNFT. The NFT acts as your badge into the Stupid Network.</p>
+    <div class="chapters">
+
+      <div class="card" onclick="tellStory('origin')">
+        <h2>Origin</h2>
+        <p>Where the stupidity began.</p>
+        <span class="tag">CHAPTER 01</span>
+      </div>
+
+      <div class="card" onclick="tellStory('nft')">
+        <h2>The NFT Club</h2>
+        <p>2,222 hand-drawn badges into the movement.</p>
+        <span class="tag">CHAPTER 02</span>
+      </div>
+
+      <div class="card" onclick="tellStory('gaming')">
+        <h2>Stupid Gaming</h2>
+        <p>Streamers, games, streaks, and chaos.</p>
+        <span class="tag">CHAPTER 03</span>
+      </div>
+
+      <div class="card" onclick="tellStory('reppers')">
+        <h2>NFT Reppers</h2>
+        <p>Holders who actually show up.</p>
+        <span class="tag">CHAPTER 04</span>
+      </div>
+
+      <div class="card" onclick="tellStory('network')">
+        <h2>The Stupid Network</h2>
+        <p>Shows, spaces, music, comedy, and media.</p>
+        <span class="tag">CHAPTER 05</span>
+      </div>
+
+      <div class="card" onclick="tellStory('events')">
+        <h2>Events</h2>
+        <p>IRL and virtual gatherings for the stupid economy.</p>
+        <span class="tag">CHAPTER 06</span>
+      </div>
+
     </div>
 
-    <div class="card">
-      <h2>Stupid Gaming</h2>
-      <p>Our streamer and creator arm across Twitch, Kick, X, and YouTube. Members can represent the brand through content, gaming events, and live streams.</p>
-    </div>
-
-    <div class="card">
-      <h2>NFT Reppers</h2>
-      <p>NFT Reppers are holders who actively represent the brand. Wearing your NFT as your PFP, streaming, referring mints, joining events, and creating content can earn entries and recognition.</p>
-    </div>
-
-    <div class="card">
-      <h2>The Stupid Network</h2>
-      <p>A holder-powered media arm for shows, spaces, music, comedy, gaming, and stupid ideas that deserve to exist.</p>
-    </div>
-
-    <div class="card">
-      <h2>Roadmap</h2>
-      <p>More AI-powered content, more holder-led shows, more gaming, more live events, more merch, and more chaos.</p>
+    <div class="roadmap">
+      <h2>Future Roadmap</h2>
+      <p>
+        AI-powered content, holder-led shows, Stupid Gaming expansion, monthly NFT Repper rewards,
+        more merch, more events, more music, and more reasons to proudly say memecoins are stupid.
+      </p>
     </div>
   </div>
+
+  <script>
+    const stories = {
+      origin: "In January 2025, Bitcoin maxi Fred Krueger launched $STUPID on Solana to prove memecoins were stupid. Instead, the community took the joke seriously and started building culture around it.",
+      nft: "The Stupid MF Club is 2,222 hand-drawn NFTs created by @FoolyNFT. The NFT is not just a PFP. It is your badge into the Stupid Network.",
+      gaming: "Stupid Gaming is the streamer and creator arm of the brand. Twitch, Kick, X, YouTube, daily live streaks, community games, and monthly rewards for active holders.",
+      reppers: "NFT Reppers are the holders who actively represent Stupid MFs. Wear the NFT as your PFP, create content, join events, refer new mints, and earn recognition.",
+      network: "The Stupid Network is our media engine. X Spaces, podcasts, music, comedy shows, AI content, and creator-led entertainment powered by the holders.",
+      events: "Stupid MF events bring the brand into the real world and the metaverse. Private music gatherings, Portals events, comedy nights, mint parties, and networking for builders."
+    };
+
+    function tellStory(chapter) {
+      const box = document.getElementById("storyBox");
+      box.innerText = stories[chapter];
+      box.style.transform = "scale(1.04) rotate(-1deg)";
+      setTimeout(() => {
+        box.style.transform = "scale(1)";
+      }, 180);
+    }
+  </script>
 
 </body>
 </html>
