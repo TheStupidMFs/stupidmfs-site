@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spotlight - Stupid MFs</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: url("month.png") center/cover no-repeat fixed;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 26, 0, 0.88);
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .nav {
+      background: black;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav a {
+      color: white;
+      margin: 0 18px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 70px 20px;
+    }
+
+    h1 {
+      font-size: 58px;
+      text-shadow: 6px 6px black;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      font-weight: bold;
+      text-shadow: 3px 3px black;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      max-width: 720px;
+      margin: 0 auto;
+      background: white;
+      color: black;
+      border: 6px solid black;
+      box-shadow: 12px 12px 0 black;
+      padding: 35px 25px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ffe600;
+      color: black;
+      border: 4px solid black;
+      padding: 10px 18px;
+      font-weight: bold;
+      box-shadow: 5px 5px 0 black;
+      margin-bottom: 25px;
+      animation: bounce 1.5s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
+    .winner-img {
+      width: 260px;
+      max-width: 90%;
+      border: 6px solid black;
+      box-shadow: 10px 10px 0 black;
+      animation: float 2s infinite ease-in-out;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .winner-img:hover {
+      transform: scale(1.08) rotate(-3deg);
+      filter: contrast(1.2) saturate(1.3);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    h2 {
+      font-size: 38px;
+      margin-bottom: 5px;
+    }
+
+    .handle {
+      font-weight: bold;
+      color: #ff1a00;
+      font-size: 18px;
+    }
+
+    .story {
+      margin: 25px auto;
+      max-width: 620px;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .quote-box {
+      background: black;
+      color: white;
+      border: 4px solid black;
+      padding: 20px;
+      margin: 25px auto;
+      max-width: 600px;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 7px 7px 0 #ff1a00;
+    }
+
+    .x-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 18px 42px;
+      background: black;
+      color: white;
+      border: 5px solid black;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 8px 8px 0 #ff1a00;
+      transition: 0.2s;
+    }
+
+    .x-button:hover {
+      transform: scale(1.1) rotate(-1deg);
+      background: #ffe600;
+      color: black;
+    }
+
+    .reminder {
+      margin-top: 45px;
+      font-size: 22px;
+      font-weight: bold;
+      text-shadow: 3px 3px black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="overlay"></div>
+
+  <div class="nav">
+    <a href="index.html">HOME</a>
+    <a href="merch.html">MERCH</a>
+    <a href="fooly.html">MEET FOOLY</a>
+    <a href="spotlight.html">SPOTLIGHT</a>
+    <a href="playbook.html">PLAYBOOK</a>
+  </div>
+
+  <div class="content">
+    <h1>STUPID MF OF THE MONTH</h1>
+    <p class="subtitle">Recognizing the holders and builders keeping the stupidity alive.</p>
+
+    <div class="card">
+      <div class="badge">MONTHLY WINNER</div>
+
+      <br>
+
+      <img src="konrad.jpg" class="winner-img" onclick="showMessage()">
+
+      <h2>Konrad</h2>
+      <p class="handle">@THEKONRAD</p>
+
+      <p class="story">
+        Konrad is a committed Stupid MF and $STUPID holder. He is a DJ, builder, and constant presence in the community.
+      </p>
+
+      <div class="quote-box" id="messageBox">
+        Click Konrad to reveal why he earned it.
+      </div>
+
+      <p class="story">
+        This month, Konrad is being recognized for showing up in a huge Bitcoin Maxi space and shamelessly telling his
+        Stupid Millionaire story about being homeless in Paris. His story was recognized by Grant Cardone, Gary Cardone,
+        and others who ended up becoming part of the community.
+      </p>
+
+      <a class="x-button" href="PUT_KONRAD_X_LINK_HERE" target="_blank">
+        FOLLOW KONRAD ON X
+      </a>
+    </div>
+
+    <p class="reminder">Reminder: show up every day. You never know who is listening.</p>
+  </div>
+
+  <script>
+    function showMessage() {
+      const box = document.getElementById("messageBox");
+      box.innerText = "Konrad showed up, told the story, and turned attention into community. That is Stupid MF energy.";
+    }
+  </script>
+
+</body>
+</html>
